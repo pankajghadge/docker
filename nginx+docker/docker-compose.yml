@@ -1,0 +1,10 @@
+version: '2'
+services:
+  balancer1:
+    build: .
+    ports:
+     - "8888:80"
+     - "1936:1936"
+    expose:
+     - "80"
+     - "1936"
