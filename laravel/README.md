@@ -1,18 +1,32 @@
 step1: Create project directory
+
        e.g: mkdir laravel_project
+
 step2: Create mysql data directory under project + database directory
+
        $ mkdir -p laravel_project/database/mysql-data
+
 step3: Downloading Laravel and Installing Dependencies
+
        $ cd laravel_project
+
        $ git clone https://github.com/laravel/laravel.git laravel-app
+
        $ cd ./laravel-app
+
        #Use Docker's composer image to mount the directories that you will need for your Laravel project & avoid the overhead of installing Composer globally
+
        $ docker run --rm -v $(pwd):/app composer install
+
 step4: Copy given Dockerfile under laravel_project/laravel-app
+
 step5: Configuring PHP
+
        $ mkdir ./laravel-app/php
 
+
        Next, open the local.ini file and add below contains (ignore hash "#" while copying)
+
        
        vim ./laravel-app/php/local.ini
        ###########################################
@@ -20,7 +34,9 @@ step5: Configuring PHP
        ### post_max_size=40M                   ###
        ###########################################
 
+
 step6: Running the Containers and Modifying Environment Settings
+
        cp ./laravel-app/.env.example ./laravel-app/.env
 
        Find the block in .evn file that specifies DB_CONNECTION and update it to reflect the specifics of your setup. You will modify the following fields:
